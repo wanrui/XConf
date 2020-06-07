@@ -12,7 +12,7 @@
 - Google认证 
 
 ### 授权
-fen
+
 
 
 casbin 授权规则
@@ -29,6 +29,7 @@ CREATE TABLE `casbin_rule` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4;
 ```
+数据权限关联
 
 ```mariadb
 CREATE TABLE `data_perm` (
@@ -46,19 +47,6 @@ CREATE TABLE `data_perm` (
   PRIMARY KEY (`id`),
   KEY `idx_data_perm_domain_id` (`domain_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='数据权限管理';
-```
-项目域表（数据表）
-```mariadb
-CREATE TABLE `domain` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '名称',
-  `callbackurl` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '回调链接',
-  `remark` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '说明',
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '标识',
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='项目域表';
 ```
 
 菜单表
